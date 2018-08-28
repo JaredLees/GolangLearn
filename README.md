@@ -115,12 +115,24 @@ func main() {
       f.Interface())
   } 
 }
-该程序的输出结果为:
+//该程序的输出结果为:
     0: Name string = Sparrow
     1: LifeExpectance int = 3
 ```
-
-
+### 语言交互性
+> Go语言可以按照Cgo的特定语法去调用C模块，如下：
+```go
+package main
+/*
+#include <stdio.h> */
+import "C"
+import "unsafe"
+func main() {
+  cstr := C.CString("Hello, world") 
+  C.puts(cstr) 
+  C.free(unsafe.Pointer(cstr))
+}
+```
 
 
 
