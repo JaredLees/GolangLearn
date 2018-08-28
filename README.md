@@ -133,6 +133,48 @@ func main() {
   C.free(unsafe.Pointer(cstr))
 }
 ```
+### 第一个Go程序
+```go
+package main //包的语法和java一样
+
+import "fmt"// 我们需要使用fmt包中的Println()函数
+
+func main() {
+  fmt.Println("Hello, world. 你好，世界!")
+}
+
+// 所有Go函数(包括在对象编程中会提到的类型成员函数)以关键字func开头。一个常规的 函数定义包含以下部分:
+func 函数名(参数列表)(返回值列表) { 
+  // 函数体
+}
+对应的一个实例如下:
+//有两个返回值，在函数返回时没有被明确赋值的返回值都会被设置为默认 值，比如result会被设为0.0，err会被设为nil
+func Compute(value1 int, value2 float64)(result float64, err error) { 
+  // 函数体
+}
+
+//关于注释：
+/*
+块注释
+*/
+// 行注释
+```
+
+### 工程结构
+```go
+<calcproj> 
+├─<src>
+    ├─<calc> 
+        ├─calc.go //可执行程序，名为calc，内部只包含一个calc.go文件
+    ├─<simplemath> //算法库，名为simplemath，每个command对应于一个同名的go文件，比如add.go
+        ├─add.go
+        ├─add_test.go 
+        ├─sqrt.go 
+        ├─sqrt_test.go
+├─<bin> 
+├─<pkg>#包将被安装到此处
+```
+
 
 
 
